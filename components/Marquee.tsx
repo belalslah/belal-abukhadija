@@ -72,43 +72,6 @@ export default function Marquee() {
           </motion.span>
         ))}
       </div>
-
-      {/* Floating 3D skill badges - appears on larger screens */}
-      <div className="hidden xl:block absolute inset-0 pointer-events-none">
-        {[
-          { skill: "React", top: "20%", left: "15%", delay: 0 },
-          { skill: "Next.js", top: "60%", right: "20%", delay: 1 },
-          { skill: "TypeScript", top: "35%", right: "10%", delay: 2 },
-        ].map((item, i) => (
-          <motion.div
-            key={i}
-            className="absolute"
-            style={{ top: item.top, left: item.left, right: item.right }}
-            initial={{ opacity: 0, scale: 0, rotateY: -180 }}
-            animate={{ 
-              opacity: [0.4, 0.7, 0.4],
-              scale: [1, 1.1, 1],
-              rotateY: 0,
-              y: [0, -20, 0]
-            }}
-            transition={{
-              opacity: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: item.delay },
-              scale: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: item.delay },
-              rotateY: { duration: 1, delay: item.delay + 0.5 },
-              y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: item.delay }
-            }}
-          >
-            <div 
-              className="px-6 py-3 bg-gradient-to-br from-white/[0.12] to-white/[0.04] backdrop-blur-xl rounded-full border border-white/[0.15] shadow-2xl"
-              style={{ transformStyle: "preserve-3d", transform: "translateZ(50px)" }}
-            >
-              <span className="text-sm font-display font-bold text-primary-400">
-                {item.skill}
-              </span>
-            </div>
-          </motion.div>
-        ))}
-      </div>
     </section>
   );
 }

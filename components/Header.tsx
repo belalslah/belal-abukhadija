@@ -49,8 +49,8 @@ export default function Header() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="text-4xl font-display font-bold text-white tracking-tight">
-                BELAL
+              <span className="text-2xl font-bold text-white tracking-tight">
+                Belal abu Khadija
               </span>
             </motion.button>
 

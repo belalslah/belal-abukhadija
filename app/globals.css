@@ -67,7 +67,7 @@
 
   /* --- Font families --- */
   --font-sans:    var(--font-inter), system-ui, -apple-system, sans-serif;
-  --font-display: "CS Robert Mono", var(--font-space-grotesk), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-space-grotesk), system-ui, -apple-system, sans-serif;
 }
 
 /* ============================================================
@@ -178,9 +178,14 @@
     text-wrap: balance;
   }
 
-  /* Force CS Robert Mono display font */
-  .font-display {
+  /* Force CS Robert Mono display font — only for hero headings */
+  .font-hero {
     font-family: "CS Robert Mono", ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+  }
+
+  /* Display font — Space Grotesk */
+  .font-display {
+    font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, -apple-system, sans-serif !important;
   }
 
   /* 3D Perspective for Hero element */

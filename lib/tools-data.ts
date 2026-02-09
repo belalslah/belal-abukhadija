@@ -71,6 +71,14 @@ export const tools: Tool[] = [
     color: "from-indigo-500 to-purple-500",
     category: "Media"
   },
+  {
+    name: "WordCount Pro",
+    description: "Accurate word and character counter with SEO keyword density analysis, platform character limits, and reading time estimates. Runs entirely in your browser.",
+    url: "https://counter.belal.work/",
+    icon: "LetterText",
+    color: "from-teal-500 to-cyan-500",
+    category: "Productivity"
+  },
 ];
 
 /**

@@ -168,7 +168,7 @@ export default function Tools() {
           </div>
 
           {/* ── Tool Cards ── */}
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {tools.map((tool, index) => (
               <ToolCard key={tool.name} tool={tool} index={index} />
             ))}

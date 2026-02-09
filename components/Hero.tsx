@@ -140,7 +140,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Main Heading — word-by-word reveal */}
-            <h1 className="font-display font-bold leading-[0.92] tracking-[-0.03em] mb-10">
+            <h1 className="font-hero font-bold leading-[0.92] tracking-[-0.03em] mb-10">
               <span className="block text-[clamp(3rem,8vw,7.5rem)] text-white">
                 <RevealText delay={0.3}>
                   {`I'm ${personalInfo.name.split(" ")[0]}`}
