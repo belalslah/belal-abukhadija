@@ -48,14 +48,6 @@ export const tools: Tool[] = [
     category: "Productivity"
   },
   {
-    name: "Link Share",
-    description: "Create temporary shareable links with optional password protection. All links automatically expire after 24 hours for security.",
-    url: "https://share.belal.work/",
-    icon: "Share2",
-    color: "from-green-500 to-emerald-500",
-    category: "Utility"
-  },
-  {
     name: "Arabic Lorem Ipsum",
     description: "Generate professional Arabic placeholder text for mockups and templates. Designed specifically for Arabic-language projects.",
     url: "https://text.belal.work/",
