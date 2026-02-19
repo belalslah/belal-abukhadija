@@ -5,7 +5,6 @@ import Tools from "@/components/Tools";
 import Showcase from "@/components/Showcase";
 import Process from "@/components/Process";
 import About from "@/components/About";
-import Availability from "@/components/Availability";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -20,7 +19,6 @@ export default function Home() {
         <Showcase />
         <Process />
         <About />
-        <Availability />
         <Contact />
       </main>
       <Footer />

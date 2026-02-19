@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-/* ============================================================
-   PORTFOLIO — Premium Design System
-   Inspired by Capsul'in Pro, Logartis & The Ocean Agency
-   ============================================================ */
-
-/* ── CS Robert Mono Display Font ── */
 @font-face {
   font-family: "CS Robert Mono";
   src: url("/fonts/CsRobertMonoRegularDemo-9M97B.otf") format("opentype");
@@ -15,134 +9,117 @@
 }
 
 @theme {
-  /* --- Primary (Emerald-teal) --- */
-  --color-primary-50:  #f0fdfa;
-  --color-primary-100: #ccfbf1;
-  --color-primary-200: #99f6e4;
-  --color-primary-300: #5eead4;
-  --color-primary-400: #2dd4bf;
-  --color-primary-500: #14b8a6;
-  --color-primary-600: #0d9488;
-  --color-primary-700: #0f766e;
-  --color-primary-800: #115e59;
-  --color-primary-900: #134e4a;
-  --color-primary-950: #042f2e;
+  --color-primary-50: #f8ffe0;
+  --color-primary-100: #ecffc2;
+  --color-primary-200: #ddff8f;
+  --color-primary-300: #cfff4d;
+  --color-primary-400: #b6ff00;
+  --color-primary-500: #90cc00;
+  --color-primary-600: #6f9f00;
+  --color-primary-700: #537700;
+  --color-primary-800: #3b5400;
+  --color-primary-900: #243300;
+  --color-primary-950: #121a00;
 
-  /* --- Accent (Cyan/Sky Blue) --- */
-  --color-accent-50:  #f0f9ff;
-  --color-accent-100: #e0f2fe;
-  --color-accent-200: #bae6fd;
-  --color-accent-300: #7dd3fc;
-  --color-accent-400: #38bdf8;
-  --color-accent-500: #0ea5e9;
-  --color-accent-600: #0284c7;
-  --color-accent-700: #0369a1;
-  --color-accent-800: #075985;
-  --color-accent-900: #0c4a6e;
-  --color-accent-950: #082f49;
+  --color-accent-50: #e8fbff;
+  --color-accent-100: #ccf6ff;
+  --color-accent-200: #9cecff;
+  --color-accent-300: #5fddff;
+  --color-accent-400: #15ceff;
+  --color-accent-500: #00a8d6;
+  --color-accent-600: #0086ac;
+  --color-accent-700: #006a87;
+  --color-accent-800: #005267;
+  --color-accent-900: #053a47;
+  --color-accent-950: #021f26;
 
-  /* --- Surface (Lighter dark — better contrast) --- */
-  --color-surface-50:  #fafafa;
-  --color-surface-100: #f4f4f5;
-  --color-surface-200: #e4e4e7;
-  --color-surface-300: #d4d4d8;
-  --color-surface-400: #a1a1aa;
-  --color-surface-500: #71717a;
-  --color-surface-600: #52525b;
-  --color-surface-700: #3f3f46;
-  --color-surface-800: #2c2c32;
-  --color-surface-900: #1c1c22;
-  --color-surface-950: #111116;
+  --color-surface-50: #f7f8fa;
+  --color-surface-100: #eceff4;
+  --color-surface-200: #d9dde6;
+  --color-surface-300: #bbc3d1;
+  --color-surface-400: #8f9ab0;
+  --color-surface-500: #667188;
+  --color-surface-600: #4a5366;
+  --color-surface-700: #323949;
+  --color-surface-800: #1f2531;
+  --color-surface-900: #121620;
+  --color-surface-950: #080b12;
 
-  /* --- Animations --- */
-  --animate-fade-in:            fadeIn 0.7s cubic-bezier(.16,1,.3,1) both;
-  --animate-slide-up:           slideUp 0.7s cubic-bezier(.16,1,.3,1) both;
-  --animate-float:              float 8s ease-in-out infinite;
-  --animate-glow:               glow 4s ease-in-out infinite;
-  --animate-shimmer:            shimmer 2.5s linear infinite;
-  --animate-spin-slow:          spin 30s linear infinite;
-  --animate-pulse-soft:         pulseSoft 4s ease-in-out infinite;
-  --animate-marquee:            marquee 45s linear infinite;
-  --animate-marquee-reverse:    marquee-reverse 45s linear infinite;
+  --animate-fade-in: fadeIn 0.7s cubic-bezier(.16,1,.3,1) both;
+  --animate-slide-up: slideUp 0.7s cubic-bezier(.16,1,.3,1) both;
+  --animate-float: float 10s ease-in-out infinite;
+  --animate-glow: glow 4s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-spin-slow: spin 28s linear infinite;
+  --animate-pulse-soft: pulseSoft 4s ease-in-out infinite;
+  --animate-marquee: marquee 45s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 45s linear infinite;
 
-  /* --- Font families --- */
-  --font-sans:    var(--font-inter), system-ui, -apple-system, sans-serif;
-  --font-display: var(--font-space-grotesk), system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-inter), "Satoshi", system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-inter), "Satoshi", system-ui, -apple-system, sans-serif;
 }
 
-/* ============================================================
-   KEYFRAMES
-   ============================================================ */
 @keyframes fadeIn {
   from { opacity: 0; }
-  to   { opacity: 1; }
+  to { opacity: 1; }
 }
 
 @keyframes slideUp {
   from { transform: translateY(32px); opacity: 0; }
-  to   { transform: translateY(0);    opacity: 1; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
-  33%      { transform: translateY(-20px) rotate(1deg); }
-  66%      { transform: translateY(10px) rotate(-1deg); }
+  50% { transform: translateY(-16px) rotate(2deg); }
 }
 
 @keyframes glow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50%      { opacity: 0.7; transform: scale(1.05); }
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
 }
 
 @keyframes shimmer {
-  0%   { background-position: -200% 0; }
+  0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
 
 @keyframes pulseSoft {
   0%, 100% { transform: scale(1); opacity: 1; }
-  50%      { transform: scale(1.05); opacity: 0.85; }
+  50% { transform: scale(1.04); opacity: 0.75; }
 }
 
 @keyframes gradientMove {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
 @keyframes marquee {
-  0%   { transform: translateX(0); }
+  0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 @keyframes marquee-reverse {
-  0%   { transform: translateX(-50%); }
+  0% { transform: translateX(-50%); }
   100% { transform: translateX(0); }
 }
 
 @keyframes revealLine {
   from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
+  to { transform: scaleX(1); }
 }
 
-@keyframes borderGlow {
-  0%, 100% { opacity: 0.3; }
-  50%      { opacity: 0.8; }
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(24px, -16px); }
 }
 
-/* ============================================================
-   BASE STYLES
-   ============================================================ */
 @layer base {
-  /* Custom scrollbar — dark themed */
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: #111116;
-  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background-color: #080b12; }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, var(--color-primary-500), var(--color-primary-400));
+    background: linear-gradient(to bottom, var(--color-primary-400), var(--color-accent-400));
     border-radius: 9999px;
   }
 
@@ -153,99 +130,117 @@
   }
 
   body {
-    background-color: var(--color-surface-950);
-    color: #ffffff;
+    color: #f6f9ff;
     overflow-x: hidden;
+    background:
+      radial-gradient(65% 55% at 90% -5%, rgba(182, 255, 0, 0.14), transparent),
+      radial-gradient(55% 45% at 8% 18%, rgba(21, 206, 255, 0.14), transparent),
+      linear-gradient(180deg, #0b1019 0%, #080b12 42%, #080b12 100%);
   }
 
   ::selection {
-    background-color: rgba(20, 184, 166, 0.3);
-    color: #ffffff;
+    background-color: rgba(182, 255, 0, 0.35);
+    color: #051104;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-primary-500);
+    outline: 2px solid var(--color-primary-400);
     outline-offset: 2px;
     border-radius: 4px;
   }
 }
 
-/* ============================================================
-   UTILITY CLASSES
-   ============================================================ */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 
-  /* Force CS Robert Mono display font — only for hero headings */
   .font-hero {
-    font-family: "CS Robert Mono", ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+    font-family: var(--font-inter), "Satoshi", system-ui, sans-serif !important;
+    letter-spacing: -0.02em;
   }
 
-  /* Display font — Space Grotesk */
   .font-display {
-    font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+    font-family: var(--font-inter), "Satoshi", system-ui, sans-serif !important;
   }
 
-  /* 3D Perspective for Hero element */
-  .perspective-\[1200px\] {
-    perspective: 1200px;
-  }
+  .perspective-\[1200px\] { perspective: 1200px; }
 
-  /* Animated gradient text — NO PURPLE */
   .gradient-text {
-    background: linear-gradient(135deg, #5eead4, #38bdf8, #2dd4bf);
-    background-size: 200% auto;
+    background: linear-gradient(110deg, #b6ff00, #15ceff, #edff9f);
+    background-size: 220% auto;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     animation: gradientMove 5s ease-in-out infinite;
   }
 
-  /* Grain overlay for premium texture */
   .grain::after {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.5;
+    opacity: 0.45;
   }
 
-  /* Glass effects */
   .glass-dark {
-    background: rgba(17, 17, 22, 0.7);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    background: rgba(8, 11, 18, 0.72);
+    backdrop-filter: blur(22px) saturate(150%);
+    -webkit-backdrop-filter: blur(22px) saturate(150%);
   }
 
-  /* Soft shadow for dark theme */
+  .panel-cut {
+    clip-path: polygon(0 10px, 10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+
+  .section-frame {
+    border: 1px solid rgba(246, 249, 255, 0.1);
+    background: linear-gradient(135deg, rgba(15, 21, 33, 0.94), rgba(10, 14, 23, 0.9));
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 30px 80px -40px rgba(0, 0, 0, 0.8);
+  }
+
+  .scan-grid {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .scan-grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  }
+
   .shadow-soft {
-    box-shadow: 0 4px 40px -8px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 50px -12px rgba(0, 0, 0, 0.55), 0 1px 0 rgba(255, 255, 255, 0.04);
   }
 
-  /* Glow effects */
   .glow-primary {
-    box-shadow: 0 0 80px -20px rgba(20, 184, 166, 0.3);
-  }
-  .glow-accent {
-    box-shadow: 0 0 80px -20px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 80px -20px rgba(182, 255, 0, 0.35);
   }
 
-  /* Reveal line */
+  .glow-accent {
+    box-shadow: 0 0 80px -20px rgba(21, 206, 255, 0.32);
+  }
+
   .reveal-line {
     height: 2px;
-    background: linear-gradient(90deg, var(--color-primary-500), var(--color-primary-400));
+    background: linear-gradient(90deg, var(--color-primary-400), var(--color-accent-400));
     transform-origin: left;
     animation: revealLine 0.8s cubic-bezier(.16,1,.3,1) both;
   }
 
-  /* Stagger delays */
+  .float-drift {
+    animation: drift 8s ease-in-out infinite;
+  }
+
   .delay-100 { animation-delay: 100ms; }
   .delay-200 { animation-delay: 200ms; }
   .delay-300 { animation-delay: 300ms; }

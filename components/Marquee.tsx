@@ -1,76 +1,48 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 const skills = [
   "React",
   "Next.js",
   "TypeScript",
-  "Tailwind CSS",
+  "Tailwind",
   "Node.js",
-  "JavaScript",
   "Web Tools",
-  "REST APIs",
-  "UI / UX",
-  "Performance",
-  "Privacy-First",
+  "Privacy-first",
   "Open Source",
+  "Performance",
+  "UX Systems",
 ];
 
 export default function Marquee() {
   const doubled = [...skills, ...skills];
 
   return (
-    <section className="relative py-16 bg-surface-950 overflow-hidden select-none">
-      {/* Top border with gradient */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+    <section className="relative py-12 bg-surface-950 overflow-hidden select-none">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.12] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.12] to-transparent" />
 
-      {/* Floating 3D orbs in background */}
-      <motion.div
-        animate={{ 
-          x: [0, 100, 0],
-          y: [0, -50, 0]
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/4 w-32 h-32 bg-primary-400/10 rounded-full blur-3xl"
-      />
-      <motion.div
-        animate={{ 
-          x: [0, -80, 0],
-          y: [0, 40, 0]
-        }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute top-1/2 right-1/4 w-40 h-40 bg-accent-400/10 rounded-full blur-3xl"
-      />
-
-      {/* Row 1 — outlined / stroke text, scrolling left with 3D effect */}
-      <div className="flex animate-marquee whitespace-nowrap mb-4 perspective-[1000px]">
-        {doubled.map((skill, i) => (
-          <motion.span
-            key={`a-${i}`}
-            className="mx-6 text-4xl md:text-6xl font-display font-bold text-transparent hover:scale-110 transition-transform duration-200"
-            style={{ 
-              WebkitTextStroke: "1px rgba(255,255,255,0.12)",
-              transformStyle: "preserve-3d"
-            }}
-          >
-            {skill}
-          </motion.span>
-        ))}
+      <div className="panel-cut border-y border-white/[0.12] bg-white/[0.03] py-4">
+        <div className="flex animate-marquee whitespace-nowrap">
+          {doubled.map((skill, i) => (
+            <span
+              key={`a-${i}`}
+              className="mx-5 text-2xl md:text-4xl font-display text-transparent"
+              style={{ WebkitTextStroke: "1px rgba(246,249,255,0.22)" }}
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
       </div>
 
-      {/* Row 2 — filled with gradient, scrolling right with 3D effect */}
-      <div className="flex animate-marquee-reverse whitespace-nowrap perspective-[1000px]">
-        {doubled.map((skill, i) => (
-          <motion.span
-            key={`b-${i}`}
-            className="mx-6 text-4xl md:text-6xl font-display font-bold gradient-text opacity-20 hover:opacity-50 hover:scale-110 transition-all duration-200"
-            style={{ transformStyle: "preserve-3d" }}
-          >
-            {skill}
-          </motion.span>
-        ))}
+      <div className="panel-cut mt-3 border-y border-primary-300/40 bg-primary-300/10 py-3">
+        <div className="flex animate-marquee-reverse whitespace-nowrap">
+          {doubled.map((skill, i) => (
+            <span key={`b-${i}`} className="mx-5 text-sm md:text-base uppercase tracking-[0.25em] text-primary-100/90">
+              {skill}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

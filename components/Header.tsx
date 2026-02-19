@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
 import { personalInfo } from "@/lib/tools-data";
 
@@ -27,49 +27,33 @@ export default function Header() {
 
   return (
     <>
-      {/* ── Scroll Progress Bar ── */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary-400 via-primary-300 to-primary-400 z-[60] origin-left"
+        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary-300 via-accent-300 to-primary-300 z-[60] origin-left"
         style={{ scaleX: scrollYProgress }}
       />
 
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "py-3 bg-surface-950/70 backdrop-blur-2xl border-b border-white/[0.08]"
-            : "py-6 bg-transparent"
+            ? "py-3 bg-surface-950/78 backdrop-blur-2xl border-b border-white/[0.08]"
+            : "py-5 bg-transparent"
         }`}
       >
         <nav className="container mx-auto px-6">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <motion.button
-              onClick={() => scrollToSection("hero")}
-              className="relative group"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span className="text-2xl font-bold text-white tracking-tight">
-                Belal abu Khadija
-              </span>
-            </motion.button>
-
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-1">
+          <div className="flex items-center justify-end gap-4">
+            <div className="hidden md:flex items-center gap-1 rounded-full border border-white/[0.1] bg-white/[0.03] px-2 py-1">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="relative px-5 py-2 text-sm font-medium text-white/55 hover:text-white transition-colors duration-300 group"
+                  className="rounded-full px-4 py-2 text-xs uppercase tracking-[0.16em] text-white/65 hover:text-surface-950 hover:bg-primary-300 transition-colors duration-300"
                 >
                   {item.label}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-primary-400 transition-all duration-300 group-hover:w-3/4" />
                 </button>
               ))}
             </div>
 
-            {/* Social + CTA */}
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-2">
               {[
                 { href: personalInfo.github, icon: Github, label: "GitHub" },
                 { href: personalInfo.linkedin, icon: Linkedin, label: "LinkedIn" },
@@ -79,59 +63,54 @@ export default function Header() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-white/40 hover:text-white hover:bg-white/[0.08] transition-all duration-300"
+                  className="w-9 h-9 rounded-lg border border-white/[0.1] bg-white/[0.03] flex items-center justify-center text-white/50 hover:text-primary-300 hover:border-primary-300/60 transition-all duration-300"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
                 </a>
               ))}
-              <div className="w-px h-5 bg-white/10 mx-1" />
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-primary-400 border border-primary-500/25 hover:bg-primary-500/10 hover:border-primary-400/40 transition-all duration-300"
+                className="panel-cut inline-flex items-center gap-2 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-surface-950 bg-primary-300 hover:bg-primary-200 transition-colors duration-300"
               >
                 <Mail className="w-3.5 h-3.5" />
                 Hire Me
               </a>
             </div>
 
-            {/* Mobile toggle */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden w-10 h-10 rounded-full flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-all"
+              className="md:hidden w-10 h-10 rounded-lg border border-white/[0.12] bg-white/[0.04] flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all"
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
 
-          {/* Mobile menu */}
           <motion.div
             initial={false}
-            animate={
-              mobileOpen
-                ? { height: "auto", opacity: 1 }
-                : { height: 0, opacity: 0 }
-            }
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            animate={mobileOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
             className="md:hidden overflow-hidden"
           >
-            <div className="flex flex-col gap-1 pb-4 border-t border-white/5 pt-4 mt-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="px-4 py-3 text-left text-sm font-medium text-white/60 hover:text-white hover:bg-white/[0.06] rounded-lg transition-all"
-                >
-                  {item.label}
-                </button>
-              ))}
-              <div className="flex items-center gap-3 px-4 pt-3 border-t border-white/5 mt-2">
+            <div className="mt-4 rounded-2xl border border-white/[0.1] bg-surface-900/90 p-3">
+              <div className="flex flex-col gap-1">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="px-3 py-3 text-left text-sm font-medium text-white/70 hover:text-surface-950 hover:bg-primary-300 rounded-lg transition-all"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+              <div className="mt-3 flex items-center gap-3 border-t border-white/[0.08] pt-3 px-2">
                 <a
                   href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/40 hover:text-white transition-colors"
+                  className="text-white/50 hover:text-primary-300 transition-colors"
                   aria-label="GitHub"
                 >
                   <Github className="w-5 h-5" />
@@ -140,14 +119,14 @@ export default function Header() {
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/40 hover:text-white transition-colors"
+                  className="text-white/50 hover:text-primary-300 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="text-white/40 hover:text-white transition-colors"
+                  className="text-white/50 hover:text-primary-300 transition-colors"
                   aria-label="Email"
                 >
                   <Mail className="w-5 h-5" />

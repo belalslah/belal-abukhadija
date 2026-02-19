@@ -70,12 +70,13 @@ export const tools: Tool[] = [
     icon: "LetterText",
     color: "from-teal-500 to-cyan-500",
     category: "Productivity"
-  },{
+  },
+  {
     name: "Tools Plus",
-    description: "is a free online utility site offering a variety of useful tools for working with text, PDFs, images, and development tasks - like word counters, PDF split/merge, image resizing, code formatters, QR code generators, and AI helpers such as text summarizers and paraphrasers.",
+    description: "A free online utility suite with tools for text, PDFs, images, and development workflows, including formatters, generators, and productivity helpers.",
     url: "https://tools.belal.work/",
     icon: "Tool",
-    color: "bg-gray-500",
+    color: "from-slate-500 to-slate-700",
     category: "Productivity"
   },
 ];

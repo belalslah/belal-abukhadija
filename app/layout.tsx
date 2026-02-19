@@ -1,25 +1,19 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { personalInfo } from "@/lib/tools-data";
-import { 
-  personStructuredData, 
-  websiteStructuredData, 
+import {
+  personStructuredData,
+  websiteStructuredData,
   profilePageStructuredData,
   breadcrumbStructuredData,
-  softwareApplicationStructuredData 
+  softwareApplicationStructuredData,
 } from "@/lib/structured-data";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-space-grotesk",
 });
 
 /**
@@ -121,12 +115,6 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
-/**
- * Root Layout Component
- *
- * The main layout wrapper for all pages
- * Includes font configuration and basic HTML structure
- */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -135,24 +123,22 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Structured Data for SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
-              personStructuredData, 
+              personStructuredData,
               websiteStructuredData,
               profilePageStructuredData,
               breadcrumbStructuredData,
-              ...softwareApplicationStructuredData
+              ...softwareApplicationStructuredData,
             ]),
           }}
         />
-        {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
         {children}
       </body>
     </html>

@@ -14,7 +14,9 @@ interface ToolCardProps {
 export default function ToolCard({ tool, index }: ToolCardProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const IconComponent = (Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[tool.icon] || Icons.Box;
+  const IconComponent =
+    (Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[tool.icon] ||
+    Icons.Box;
 
   return (
     <motion.a
@@ -22,49 +24,40 @@ export default function ToolCard({ tool, index }: ToolCardProps) {
       href={tool.url}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 34 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{
-        duration: 0.7,
-        delay: index * 0.08,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className="group block"
+      transition={{ duration: 0.65, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+      className="group block h-full"
     >
-      <div className="relative h-full flex flex-col p-6 rounded-2xl border border-white/[0.08] bg-white/[0.025] hover:bg-white/[0.06] hover:border-primary-400/30 transition-all duration-500 overflow-hidden">
-        {/* Background gradient on hover */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-400/[0.04] to-accent-400/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-        
-        <div className="relative z-10 flex flex-col h-full">
-          {/* Top row: Icon + Arrow */}
-          <div className="flex items-start justify-between mb-5">
-            <div
-              className={`w-12 h-12 rounded-xl bg-gradient-to-br ${tool.color} flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}
-            >
-              <IconComponent className="w-6 h-6 text-white" />
-            </div>
-            <div className="w-9 h-9 rounded-full border border-white/[0.1] flex items-center justify-center group-hover:border-primary-400/40 group-hover:bg-primary-400/15 transition-all duration-500">
-              <ArrowUpRight className="w-3.5 h-3.5 text-white/30 group-hover:text-primary-400 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </div>
+      <div className="panel-cut section-frame h-full p-6 transition-all duration-400 hover:-translate-y-1 hover:border-primary-300/55">
+        <div className="mb-5 flex items-start justify-between gap-3">
+          <div className="panel-cut border border-white/[0.12] bg-white/[0.03] px-3 py-2">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-white/55">
+              {String(index + 1).padStart(2, "0")}
+            </span>
           </div>
+          <div className="w-9 h-9 rounded-md border border-white/[0.12] bg-white/[0.03] flex items-center justify-center group-hover:border-primary-300/70 group-hover:bg-primary-300/15 transition-colors duration-300">
+            <ArrowUpRight className="w-4 h-4 text-white/45 group-hover:text-primary-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300" />
+          </div>
+        </div>
 
-          {/* Title + Category */}
-          <div className="flex items-center gap-2.5 mb-2.5">
-            <h3 className="text-lg font-semibold text-white group-hover:text-primary-400 transition-colors duration-300">
+        <div className="mb-5 flex items-center gap-4">
+          <div className={`panel-cut w-14 h-14 bg-gradient-to-br ${tool.color} flex items-center justify-center shadow-soft`}>
+            <IconComponent className="w-6 h-6 text-surface-950" />
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-white group-hover:text-primary-200 transition-colors duration-300">
               {tool.name}
             </h3>
             {tool.category && (
-              <span className="text-[10px] font-semibold uppercase tracking-widest text-white/30 px-2 py-0.5 rounded-full border border-white/[0.08]">
+              <span className="text-[10px] uppercase tracking-[0.18em] text-accent-200/85">
                 {tool.category}
               </span>
             )}
           </div>
-
-          {/* Description */}
-          <p className="text-sm text-white/40 leading-relaxed flex-1">
-            {tool.description}
-          </p>
         </div>
+
+        <p className="text-sm leading-relaxed text-white/58">{tool.description}</p>
       </div>
     </motion.a>
   );
